@@ -1,0 +1,56 @@
+int f3(int n)
+{
+	int i, t;
+	double avg;
+	for (i = 0; i < n; i++)
+	{
+		t = stu[i].sco[0] + stu[i].sco[1] + stu[i].sco[2];
+		avg = t / 3;
+		if (avg < 60)
+		{
+			printf("學生 %d 平均未滿60分 分數為: %.2f\n", stu[i].num, avg);
+		}
+	}
+}
+
+int f4(int n)
+{
+	int t, j, i;
+	double avg[50], s, cpyavg[50];
+
+	for (i = 0; i < n; i++)
+	{
+		t = stu[i].sco[0] + stu[i].sco[1] + stu[i].sco[2];
+		avg[i] = t / 3;
+	}
+
+	for (i = 0; i < n; i++)
+	{
+		cpyavg[i] = avg[i];
+	}
+
+	for (i = 0; i < n; i++)
+	{
+		for (j = 0; j < n; j++)
+		{
+			if (cpyavg[j] < cpyavg[j + 1])
+			{
+				s = cpyavg[j];
+				cpyavg[j] = cpyavg[j + 1];
+				cpyavg[j + 1] = s;
+			}
+		}
+	}
+
+
+	for (i = 0; i < n; i++)
+	{
+		for (j = 0; j < n; j++)
+		{
+			if (cpyavg[i] == avg[j])
+			{
+				printf("%d.%d\n", i + 1, stu[j].num);
+			}
+		}
+	}
+}

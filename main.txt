@@ -1,0 +1,79 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct _student
+{
+	int num;
+	int sco[3];
+}student;
+
+student stu[50];
+
+int f1(int n);
+int f2(int n);
+int f3(int n);
+int f4(int n);
+
+void main(void)
+{
+	int i, cho = 0, nu;
+
+	while (1)
+	{
+		printf("請輸入學生人數(1-50): ");
+		scanf_s("%d", &nu);
+
+		cho = 0;
+
+
+		for (i = 0; i < nu; i++)
+		{
+			printf("請輸入學生學號: ");
+			scanf_s("%d", &stu[i].num);
+
+			printf("請輸入三個成績: ");
+			scanf_s("%d%d%d", &stu[i].sco[0], &stu[i].sco[1], &stu[i].sco[2]);
+		}
+
+		while (cho != 5)
+		{
+
+			printf("\n請選擇功能\n1.顯示各人平均\n2.顯示各科平均\n3.顯示平均未達60分者\n4.平均排名\n5.重新輸入人數\n6.結束:\n");
+			scanf_s("%d", &cho);
+
+			if (cho != 6)
+			{
+				switch (cho)
+				{
+				case 1:
+					f1(nu);
+					break;
+				case 2:
+					f2(nu);
+					break;
+				case 3:
+					f3(nu);
+					break;
+				case 4:
+					f4(nu);
+					break;
+				case 6:
+					printf("謝謝使用\n");
+					system("pause");
+					break;
+				default:
+					if (cho != 5)
+					{
+						printf("錯誤");
+					}
+					break;
+				}
+			}
+			else
+			{
+				cho = 0;
+				break;
+			}
+		}
+	}
+}

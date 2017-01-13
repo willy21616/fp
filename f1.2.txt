@@ -1,0 +1,27 @@
+int f1(int n)
+{
+	int i, t;
+	double avg;
+	for (i = 0; i < n; i++)
+	{
+		t = stu[i].sco[0] + stu[i].sco[1] + stu[i].sco[2];
+		avg = t / 3;
+		printf("學生 %d 平均為: %.2f\n", stu[i].num, avg);
+	}
+}
+
+int f2(int n)
+{
+	int i, j, t;
+	double avg;
+	for (i = 0; i < 3; i++)
+	{
+		t = 0;
+		for (j = 0; j < n; j++)
+		{
+			t = stu[j].sco[i] + t;
+		}
+		avg = t / n;
+		printf("成績 %d 平均為: %.2f\n", i + 1, avg);
+	}
+}
